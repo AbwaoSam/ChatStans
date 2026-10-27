@@ -1,4 +1,4 @@
-# ChatStans — Phase 2
+# ChatStans - Phase 2
 
 A responsive, WhatsApp/Instagram-inspired React chat UI.
 
