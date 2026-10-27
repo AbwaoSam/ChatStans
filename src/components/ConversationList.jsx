@@ -1,4 +1,5 @@
 import ConversationItem from "./ConversationItem";
+import EmptyState from "./EmptyState";
 
 export default function ConversationList({
   conversations,
@@ -8,7 +9,7 @@ export default function ConversationList({
   if (conversations.length === 0) {
     return (
       <div className="conversation-list__empty">
-        <p>No conversations found</p>
+        <EmptyState icon="🔍" message="No conversations found." />
       </div>
     );
   }

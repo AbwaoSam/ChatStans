@@ -1,16 +1,37 @@
-# React + Vite
+# ChatStans — Phase 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, WhatsApp/Instagram-inspired React chat UI.
 
-Currently, two official plugins are available:
+## Phase 2 additions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Task A — Routing
+- `react-router-dom` with routes `/login`, `/register`, `/chat`, `/chat/:conversationId`
+- `*` route renders a **404 Not Found** page
+- `ProtectedRoute` redirects unauthenticated users to `/login`
+- Opening `/chat/:conversationId` directly selects the correct conversation
+- Navigation between pages uses `<Link>` / `useNavigate` (no full reloads)
 
-## React Compiler
+### Task B — useEffect
+- **Browser title** updates to `"Chats • ChatStans"`, `"<Name> • ChatStans"`, or `"Conversation not found • ChatStans"`
+- **Simulated message load** when `conversationId` changes: 600 ms spinner, then content
+- **Effect cleanup** clears the pending timeout when switching conversations quickly
+- **Invalid conversation ID** shows an error state with a "Back to chats" action
+- **Mark-as-read** runs in an effect once messages finish "loading"
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Task C — Forms
+- `validateLogin` / `validateRegister` cover required fields, email format, minimum password length, and matching passwords
+- Inline field errors + submit-disabled state + simulated async success
+- Successful login/register navigates to `/chat`
+- Login ⇄ Register links between pages
 
-## Expanding the ESLint configuration
+### Task D — Preserve Phase 1
+- Original sidebar + chat layout intact
+- Message sending still works (with delivered/read ticks and auto-replies)
+- Fully responsive (single-column on mobile with a back button)
+- Reusable components under `src/components`, pages under `src/pages`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run
+
+```bash
+npm install react-router-dom
+npm run dev
