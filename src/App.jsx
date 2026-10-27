@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Chat from "./pages/Chat";
-import NotFound from "./pages/NotFound";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import Chat from "./Pages/Chat";
+import NotFound from "./Pages/NotFound";
 import "./App.css";
 
 export default function App() {
